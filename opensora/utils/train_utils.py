@@ -113,7 +113,6 @@ class MaskGenerator:
 
         num_frames = x.shape[2]
         # Hardcoded condition_frames
-        print("num_frames", num_frames)
         condition_frames_max = num_frames // 4
 
         mask = torch.ones(num_frames, dtype=torch.bool, device=x.device)
