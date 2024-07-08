@@ -118,6 +118,9 @@ class MaskGenerator:
         mask = torch.ones(num_frames, dtype=torch.bool, device=x.device)
         if num_frames <= 1:
             return mask
+        # print condition number
+        print(f"condition_frames_max: {condition_frames_max}")
+        print(f"num_frames: {num_frames}")
 
         if mask_name == "quarter_random":
             # random_size = random.randint(1, condition_frames_max)
