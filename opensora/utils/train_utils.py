@@ -140,7 +140,11 @@ class MaskGenerator:
             random_size = 1
             mask[:random_size] = 0
         elif mask_name == "quarter_tail":
-            random_size = random.randint(1, condition_frames_max)
+            # random_size = random.randint(1, condition_frames_max)
+            if condition_frames_max > 1:
+                random_size = random.randint(1, condition_frames_max)
+            else:
+                random_size = 1
             mask[-random_size:] = 0
         elif mask_name == "image_tail":
             random_size = 1
