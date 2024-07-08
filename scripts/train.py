@@ -278,6 +278,7 @@ def main():
                         else:
                             x = vae.encode(x)  # [B, C, T, H/P, W/P]
                         # Prepare text inputs
+                        assert x.shape[2] == 11, f"Expected 11 frames, got {x.shape[2]}"
                         if cfg.get("load_text_features", False):
                             model_args = {"y": y.to(device, dtype)}
                             mask = batch.pop("mask")
