@@ -355,7 +355,7 @@ def main():
                                 "loss": loss.item(),
                                 "avg_loss": avg_loss,
                                 "lr": optimizer.param_groups[0]["lr"],
-                                "debug/move_data_time": move_data_t.elapsed_time,
+                                # "debug/move_data_time": move_data_t.elapsed_time,
                                 "debug/encode_time": encode_t.elapsed_time,
                                 "debug/mask_time": mask_t.elapsed_time,
                                 "debug/diffusion_time": loss_t.elapsed_time,
