@@ -113,55 +113,55 @@ class MaskGenerator:
 
         num_frames = x.shape[2]
         # Hardcoded condition_frames
-        condition_frames_max = num_frames // 4
+        condition_frames_max = num_frames // 3
 
         mask = torch.ones(num_frames, dtype=torch.bool, device=x.device)
-        if num_frames <= 1:
+        if num_frames <= 1 or condition_frames_max < 1:
             return mask
         # print condition number
         print(f"condition_frames_max: {condition_frames_max}")
         print(f"num_frames: {num_frames}")
 
         if mask_name == "quarter_random":
-            # random_size = random.randint(1, condition_frames_max)
-            # random_pos = random.randint(0, x.shape[2] - random_size)
-            # mask[random_pos : random_pos + random_size] = 0
-            if condition_frames_max > 1:
-                random_size = random.randint(1, condition_frames_max)
-            else:
-                random_size = 1
+            random_size = random.randint(1, condition_frames_max)
             random_pos = random.randint(0, x.shape[2] - random_size)
             mask[random_pos : random_pos + random_size] = 0
+            # if condition_frames_max > 1:
+            #     random_size = random.randint(1, condition_frames_max)
+            # else:
+            #     random_size = 1
+            # random_pos = random.randint(0, x.shape[2] - random_size)
+            # mask[random_pos : random_pos + random_size] = 0
         elif mask_name == "image_random":
             random_size = 1
             random_pos = random.randint(0, x.shape[2] - random_size)
             mask[random_pos : random_pos + random_size] = 0
         elif mask_name == "quarter_head":
-            # random_size = random.randint(1, condition_frames_max)
-            if condition_frames_max > 1:
-                random_size = random.randint(1, condition_frames_max)
-            else:
-                random_size = 1
+            random_size = random.randint(1, condition_frames_max)
+            # if condition_frames_max > 1:
+            #     random_size = random.randint(1, condition_frames_max)
+            # else:
+            #     random_size = 1
             mask[:random_size] = 0
         elif mask_name == "image_head":
             random_size = 1
             mask[:random_size] = 0
         elif mask_name == "quarter_tail":
-            # random_size = random.randint(1, condition_frames_max)
-            if condition_frames_max > 1:
-                random_size = random.randint(1, condition_frames_max)
-            else:
-                random_size = 1
+            random_size = random.randint(1, condition_frames_max)
+            # if condition_frames_max > 1:
+            #     random_size = random.randint(1, condition_frames_max)
+            # else:
+            #     random_size = 1
             mask[-random_size:] = 0
         elif mask_name == "image_tail":
             random_size = 1
             mask[-random_size:] = 0
         elif mask_name == "quarter_head_tail":
-            # random_size = random.randint(1, condition_frames_max)
-            if condition_frames_max > 1:
-                random_size = random.randint(1, condition_frames_max)
-            else:
-                random_size = 1
+            random_size = random.randint(1, condition_frames_max)
+            # if condition_frames_max > 1:
+            #     random_size = random.randint(1, condition_frames_max)
+            # else:
+            #     random_size = 1
             mask[:random_size] = 0
             mask[-random_size:] = 0
         elif mask_name == "image_head_tail":
