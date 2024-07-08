@@ -121,7 +121,13 @@ class MaskGenerator:
             return mask
 
         if mask_name == "quarter_random":
-            random_size = random.randint(1, condition_frames_max)
+            # random_size = random.randint(1, condition_frames_max)
+            # random_pos = random.randint(0, x.shape[2] - random_size)
+            # mask[random_pos : random_pos + random_size] = 0
+            if condition_frames_max > 1:
+                random_size = random.randint(1, condition_frames_max)
+            else:
+                random_size = 1
             random_pos = random.randint(0, x.shape[2] - random_size)
             mask[random_pos : random_pos + random_size] = 0
         elif mask_name == "image_random":
