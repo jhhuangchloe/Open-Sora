@@ -109,9 +109,6 @@ def main():
         **dataloader_args,
     )
     num_steps_per_epoch = len(dataloader)
-    # see the dimension of data in dataloader
-    print(f"shape: {next(iter(dataloader))['video'].shape}")
-    print(f"number of frames: {next(iter(dataloader))['num_frames']}")
 
     # ======================================================
     # 3. build model
