@@ -132,6 +132,7 @@ class VariableVideoTextDataset(VideoTextDataset):
         T = self.data.iloc[index]["num_frames"]
         H = self.data.iloc[index]["height"]
         W = self.data.iloc[index]["width"]
+        print(f"Data info: T={T}, H={H}, W={W}")
         return T, H, W
 
     def getitem(self, index):
