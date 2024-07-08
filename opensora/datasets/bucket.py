@@ -30,6 +30,7 @@ def find_closet_smaller_bucket(t, t_dict, frame_interval):
 
 class Bucket:
     def __init__(self, bucket_config):
+        print(f"ASP: {ASPECT_RATIOS}")
         for key in bucket_config:
             assert key in ASPECT_RATIOS, f"Aspect ratio {key} not found."
         # wrap config with OrderedDict
