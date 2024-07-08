@@ -117,7 +117,6 @@ class Bucket:
         # get aspect ratio id
         ar_criteria = self.ar_criteria[hw_id][t_id]
         ar_id = get_closest_ratio(H, W, ar_criteria)
-        print(f"bucket_id: {hw_id}, {t_id}, {ar_id}")
         return hw_id, t_id, ar_id
 
     def get_thw(self, bucket_id):
