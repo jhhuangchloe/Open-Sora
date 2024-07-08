@@ -50,6 +50,8 @@ def prepare_dataloader(
             verbose=True,
             num_bucket_build_workers=num_bucket_build_workers,
         )
+        # print data dimension
+        print(f"Data dimension: {dataset[0]['video'].shape}")
         return (
             DataLoader(
                 dataset,
