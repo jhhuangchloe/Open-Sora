@@ -137,7 +137,7 @@ class VariableVideoTextDataset(VideoTextDataset):
     def getitem(self, index):
         # a hack to pass in the (time, height, width) info from sampler
         # print index if it is integer
-        index = str(index)
+        print("Index:", index)
         index, num_frames, height, width = [int(val) for val in index.split("-")]
 
         sample = self.data.iloc[index]
