@@ -266,8 +266,6 @@ def main():
                 with timers["move_data"] as move_data_t:
                     x = batch.pop("video").to(device, dtype)  # [B, C, T, H, W]
                     y = batch.pop("text")
-                    # Print x shape
-                    assert x.shape[2] == 11, f"Expected 11 frames, got {x.shape}"
                 if record_time:
                     timer_list.append(move_data_t)
 

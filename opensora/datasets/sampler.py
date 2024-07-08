@@ -182,7 +182,6 @@ class VariableVideoBatchSampler(DistributedSampler):
 
             # encode t, h, w into the sample index
             real_t, real_h, real_w = self.bucket.get_thw(bucket_id)
-            print(f"real_t: {real_t}, real_h: {real_h}, real_w: {real_w}")
             cur_micro_batch = [f"{idx}-{real_t}-{real_h}-{real_w}" for idx in cur_micro_batch]
             yield cur_micro_batch
 
